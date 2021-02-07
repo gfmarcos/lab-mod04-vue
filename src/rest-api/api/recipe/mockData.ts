@@ -11,6 +11,7 @@ export const mockRecipes: Recipe[] = [
      4. Using a spatula, ease around the edges of the omelette, then fold it over in half. When it starts to turn golden brown underneath, remove the pan from the heat and slide the omelette on to a plate.
     `,
     ingredients: ["2 eggs", "cheese", "salt", "black pepper"],
+    img: "../src/img/eaters-collective-6rtm6a_aVyE-unsplash.jpg",
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ export const mockRecipes: Recipe[] = [
      3. Garnish salad with thin lemon slices.
     `,
     ingredients: ["salad", "2 tomatoes", "2 avocados", "1 tooth garlic", "1 onion", "lemon juice", "salt", "pepper"],
+    img: "../src/img/jez-timms-BHD2OxkYGSk-unsplash.jpg",
   },
   {
     id: 3,
@@ -30,15 +32,7 @@ export const mockRecipes: Recipe[] = [
      2. In a large pot, combine beef, salt, oregano, pepper, garlic powder, onion flakes, diced tomatoes, tomato sauce, and mushrooms. Simmer at a low heat setting for 2 hours, stirring occasionally
      3. Cook pasta according to package directions. Drain. Serve sauce over spaghetti.
     `,
-    ingredients: [
-      "spaghetti",
-      "1 beef",
-      "1/4 teaspoon garlic powder",
-      "1 onion",
-      "3 tomatoes",
-      "4 mushrooms",
-      "oregano",
-      "salt",
-    ],
+    ingredients: ["spaghetti", "1 beef", "1/4 teaspoon garlic powder", "1 onion", "3 tomatoes", "4 mushrooms", "oregano", "salt"],
+    img: "../src/img/keriliwi-iQwJ8DGUT3U-unsplash.jpg",
   },
 ];

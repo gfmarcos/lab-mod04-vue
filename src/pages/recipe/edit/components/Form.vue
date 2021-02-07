@@ -1,5 +1,24 @@
 <template>
+
   <v-form>
+    <h1>{{recipe.name}}</h1>
+    <!-- <img v-bind:src="recipe.img" alt="">
+    <v-img v-bind:lazy-src="recipe.img" max-height="150"></v-img> -->
+    <v-img
+      v-bind:src="recipe.img"
+      v-bind:lazy-src="recipe.img"
+      max-height="150"
+    >
+      <template v-slot:placeholder>
+        <v-row class="fill-height ma-0" align="center" justify="center">
+          <v-progress-circular
+            indeterminate
+            color="grey lighten-5"
+          ></v-progress-circular>
+        </v-row>
+      </template>
+    </v-img>
+
     <v-text-field
       filled
       label="Name"
@@ -18,11 +37,17 @@
       @click:append="onAddIngredient(ingredient)"
     />
 
-    <ingredient-list-component :ingredients="recipe.ingredients" :on-remove-ingredient="onRemoveIngredient" />
+    <ingredient-list-component
+      :ingredients="recipe.ingredients"
+      :on-remove-ingredient="onRemoveIngredient"
+    />
 
-    <v-alert :value="!recipeError.ingredients.succeeded" color="error" outlined>{{
-      recipeError.ingredients.message
-    }}</v-alert>
+    <v-alert
+      :value="!recipeError.ingredients.succeeded"
+      color="error"
+      outlined
+      >{{ recipeError.ingredients.message }}</v-alert
+    >
 
     <v-textarea
       label="Description"
@@ -34,8 +59,16 @@
       @input="(value) => onUpdateRecipe('description', value)"
     ></v-textarea>
 
+    <v-alert
+      :value="!recipeError.description.succeeded"
+      color="error"
+      outlined
+      >{{ recipeError.description.message }}</v-alert
+    >
+
     <v-btn type="button" color="success" @click.prevent="onSave">Save</v-btn>
   </v-form>
+
 </template>
 
 <script lang="ts">
