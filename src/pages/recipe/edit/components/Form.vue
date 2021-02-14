@@ -1,24 +1,8 @@
 <template>
 
   <v-form>
-    <h1>{{recipe.name}}</h1>
-    <!-- <img v-bind:src="recipe.img" alt="">
-    <v-img v-bind:lazy-src="recipe.img" max-height="150"></v-img> -->
-    <v-img
-      v-bind:src="recipe.img"
-      v-bind:lazy-src="recipe.img"
-      max-height="150"
-    >
-      <template v-slot:placeholder>
-        <v-row class="fill-height ma-0" align="center" justify="center">
-          <v-progress-circular
-            indeterminate
-            color="grey lighten-5"
-          ></v-progress-circular>
-        </v-row>
-      </template>
-    </v-img>
-
+      <header-img-recipe-compnet :recipe="recipe"></header-img-recipe-compnet>
+     
     <v-text-field
       filled
       label="Name"
@@ -74,11 +58,12 @@
 <script lang="ts">
 import Vue from "vue";
 import IngredientListComponent from "./IngredientList.vue";
+import HeaderImgRecipeCompnet from "./HeaderImgRecipe.vue";
 import { FormProps } from "../formProps";
 
 export default Vue.extend({
   name: "FormComponent",
-  components: { IngredientListComponent },
+  components: { IngredientListComponent, HeaderImgRecipeCompnet },
   props: {
     recipe: { required: true },
     recipeError: { required: true },

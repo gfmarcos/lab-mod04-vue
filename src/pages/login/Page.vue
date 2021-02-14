@@ -24,7 +24,7 @@ import { FormProps } from "./formProps";
 
 export default Vue.extend({
   name: "LoginPage",
-  components: { FormComponent, CenterLayout },
+  components: { FormComponent, CenterLayout},
   props: {
     login: { required: true },
     loginError: { required: true },

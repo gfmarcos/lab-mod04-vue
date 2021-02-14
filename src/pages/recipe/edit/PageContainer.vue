@@ -1,14 +1,19 @@
 <template>
-  <recipe-edit-page
-    v-bind="{
-      recipe,
-      recipeError,
-      onUpdateRecipe,
-      onAddIngredient,
-      onSave,
-      onRemoveIngredient,
-    }"
-  />
+  <div>
+    <recipe-edit-page
+      v-bind="{
+        recipe,
+        recipeError,
+        onUpdateRecipe,
+        onAddIngredient,
+        onSave,
+        onRemoveIngredient,
+      }"
+    />
+    <v-snackbar v-model="snackbarState" :timeout="1000" color="teal" top>
+      <span>{{ snackbarMessage }}</span>
+    </v-snackbar>
+  </div>
 </template>
 
 <script lang="ts">
@@ -27,6 +32,8 @@ export default Vue.extend({
     return {
       recipe: createEmptyRecipe(),
       recipeError: createEmptyRecipeError(),
+      snackbarState: false,
+      snackbarMessage: "",
     };
   },
   beforeMount() {
@@ -52,8 +59,10 @@ export default Vue.extend({
           save(recipe)
             .then((message) => {
               console.log(message);
-              this.e = message;
-              this.$router.back();
+              this.snackbarMessage = message;
+              this.snackbarState = true;
+              console.log(this.snackbarState);
+              /*  this.$router.back(); */
             })
             .catch((error) => console.log(error));
         } else {

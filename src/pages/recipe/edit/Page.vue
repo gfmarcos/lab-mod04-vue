@@ -6,16 +6,16 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { AppLayout } from "../../../common/layouts";
+import { AppLayout} from "../../../common/layouts";
 import { FormProps } from "./formProps";
 import { FormComponent } from "./components";
 
 export default Vue.extend({
   name: "RecipeEditPage",
-  components: { AppLayout, FormComponent },
+  components: { AppLayout, FormComponent},
   props: {
     recipe: { require: true },
-    recipeError: { required: true },    
+    recipeError: { required: true },
     onUpdateRecipe: { require: true },
     onSave: { require: true },
     onRemoveIngredient: { required: true },
